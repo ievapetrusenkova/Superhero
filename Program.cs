@@ -1,4 +1,4 @@
-﻿
+﻿/*
 string name = "SuperSonic";
 int age = 77;
 string HeroPower1, HeroPower2, HeroPower3;
@@ -41,8 +41,30 @@ else
 {
     Console.WriteLine("\n The villain is stealing the cookie supply");
 }
-Console.WriteLine($"\n {name} earns {salary} eur/month");
+Console.WriteLine($"\n {name} earns {salary} eur/month");*/
 
+Console.WriteLine("Please enter side A:");
 
+string a = Console.ReadLine();
+Console.WriteLine("Please enter side B:");
+string b = Console.ReadLine();
+Console.WriteLine("Please enter side C:");
+string c = Console.ReadLine();
 
+double.TryParse(a, out double A);
+double.TryParse(b, out double B);
+double.TryParse(c, out double C);
+if ( A + B < C || B + C < A || C + A < B)
+{ Console.WriteLine("triangle doesn't exist");
+}
+else if (A == B && B == C)
+{
+    Console.WriteLine("It is isosceles triangle");
+}
+else if (A != B && B != C && A !=C)
+{ Console.WriteLine("It is scalene triangle");
+}
+else
+{ Console.WriteLine("It is equilateral triangle");
+}
 
