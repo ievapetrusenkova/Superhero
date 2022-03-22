@@ -1,4 +1,11 @@
 ﻿/*
+## Lesson 3 - Variables and Data Types
+- Create variables:
+    - Hero name - String
+    - Hero age - int
+    - Hero powers - heroPower1, heroPower2, heroPower3
+    - Create "Hero Card" view. Print variables to console
+*/
 string name = "SuperSonic";
 int age = 77;
 string HeroPower1, HeroPower2, HeroPower3;
@@ -8,7 +15,7 @@ HeroPower3 = "light speed spin dash";
 double salary = 1000;
 bool isEvil = false;
 double CookieCost = 1.29;
-Console.WriteLine("=============");
+Console.WriteLine("=======GENERAL INFO======");
 Console.WriteLine(" Hero");
 Console.WriteLine("===============");
 Console.WriteLine($"Hero name: {name}");
@@ -16,8 +23,16 @@ Console.WriteLine($"Age: {age}");
 Console.WriteLine($"HeroPowers: \n {HeroPower1}, \n {HeroPower2}, \n {HeroPower3}");
 Console.WriteLine("==============");
 
+// Cookie calculation
+/*
+ * - Continue working on Hero Card view
+    - Add new variables - deedTimeInHours1, deedTimeInHours2, deedTimeInHours3 (INT), holding time that a deed took to complete
+     - Add methods to calculate:
+    - Total time spent on deeds
+    - Average time spent on one deed
+    - How many cookies Hero will get. 5 cookies per hour
+ */
 Console.WriteLine("***************FINANCIAL INFO*****************************");
-
 
 int deedTimeInHours1 = 6;
 int deedTimeInHours2 = 7;
@@ -43,28 +58,48 @@ else
 }
 Console.WriteLine($"\n {name} earns {salary} eur/month");*/
 
-Console.WriteLine("Please enter side A:");
+// DEED
+            char deed = 'A';
 
-string a = Console.ReadLine();
-Console.WriteLine("Please enter side B:");
-string b = Console.ReadLine();
-Console.WriteLine("Please enter side C:");
-string c = Console.ReadLine();
-
-double.TryParse(a, out double A);
-double.TryParse(b, out double B);
-double.TryParse(c, out double C);
-if ( A + B < C || B + C < A || C + A < B)
-{ Console.WriteLine("triangle doesn't exist");
-}
-else if (A == B && B == C)
+switch (deed)
 {
-    Console.WriteLine("It is isosceles triangle");
+    case 'A':
+    case 'B':
+        Console.WriteLine("Perfect! You are so brave!");
+        break;
+    case 'C':
+        Console.WriteLine("Good! But You can do better!");
+        break;
+    case 'D':
+    case 'E':
+        Console.WriteLine("It is not good! You should choose your bad or good side!");
+        break;
+    case 'G':
+        Console.WriteLine("Bad, you are true villain");
+        break;
+    default:
+        Console.WriteLine("Undefined grade, please regrade it");
+        break;
 }
-else if (A != B && B != C && A !=C)
-{ Console.WriteLine("It is scalene triangle");
+        }
+    }
 }
-else
-{ Console.WriteLine("It is equilateral triangle");
-}
+
+//  BUSINESS REQUIREMENTS
+// 1. I would like to see a menu, to select different parts of superhero information card
+// 2. A list of superheroes - arrays/ maybe lists
+// 3, Add a new superhero
+// 4. Showing a specific superhero information
+// 5. Delete the superhero from the list
+//
+//
+//
+//
+// A. A list of their powers
+// 
+
+
+
+
+
 
