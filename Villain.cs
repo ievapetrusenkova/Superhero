@@ -6,39 +6,25 @@ using System.Threading.Tasks;
 
 namespace Superhero
 {
-    internal class Villain
+    internal class Villain : Person
     {
-        private string surname;
-        public string nickname { get; set; }
-        public string name { get; internal set; }
+        public string Surname { get; set; }
+        public string Nickname { get; set; }
+        public string Name { get; set; }
+        public int VillainID { get; set; }
+        public int CrimeTime { get; set; }
 
-        private int VillainID;
-
-        private int CrimeTime;
-
-        public Villain(string name, string surname, string nickname, int VillainID, int CrimeTime)
+        public Villain(string name, string surname, string nickname, int VillainID, int CrimeTime) : base(name, surname)
         {
-            this.name = name; this.surname = surname; this.nickname = nickname;
+            this.Name = name; this.Surname = surname; this.Nickname = nickname;
             this.VillainID = VillainID; this.CrimeTime = CrimeTime;
+            
         }
-        public Villain()
-        {
-            name = "Nathan";
-            surname = "Summers";
-            nickname = "Cable";
-            VillainID = 1055;
-            CrimeTime = 20;
-
-            name = "Wade";
-            surname = "Wilson";
-            nickname = "Deadpool";
-            VillainID = 1005;
-            CrimeTime = 30;
-        }
+        
         public void PrintInfo()
         {
-            Console.WriteLine($" {name} {surname} >> {nickname} >>\n Villain ID: {VillainID}");
-            Console.WriteLine($" {nickname} is a villain!\n {nickname}`s crime time is {CrimeTime} h.");
+            Console.WriteLine($" {Name} {Surname} >> {Nickname} >>\n Villain ID: {VillainID}");
+            Console.WriteLine($" {Nickname} is a villain!\n {Nickname}`s crime time is {CrimeTime} h.");
         }
         public int CalculateLevel()
         {

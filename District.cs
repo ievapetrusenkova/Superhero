@@ -11,32 +11,32 @@ namespace Superhero
         public string Title { get; set; }
         public string City { get; set; }
         public int DistrictID { get; set; }
-        public List<Hero> heroesInTheDistrict { get; set; }
+        public List<Hero> HeroesInTheDistrict { get; set; }
 
         public District(string title, string city, int districtID, List<Hero> heroesInTheDistrict)
         {
-            this.Title = title; this.City = city; this.DistrictID = districtID; this.heroesInTheDistrict = heroesInTheDistrict;
+            this.Title = title; this.City = city; this.DistrictID = districtID; this.HeroesInTheDistrict = heroesInTheDistrict;
         }
 
 
         public void AddHero(Hero hero)
         {
-            Console.WriteLine($" We have added to {Title} hero {hero.nickname}");
-            heroesInTheDistrict.Add(hero);
+            Console.WriteLine($" We have added to {Title} hero {hero.Nickname}");
+            HeroesInTheDistrict.Add(hero);
         }
         public void RemoveHero(int position)
         {
-            Console.WriteLine($" We removed the hero {heroesInTheDistrict[position]}");
-            heroesInTheDistrict.RemoveAt(position);
+            Console.WriteLine($" We removed the hero {HeroesInTheDistrict[position]}");
+            HeroesInTheDistrict.RemoveAt(position);
         }
         public float CalculateAvgLevelInDistrict()
         {
             float OverallLevel = 0f;
-            foreach (Hero hero in heroesInTheDistrict)
+            foreach (Hero hero in HeroesInTheDistrict)
             {
                 hero.CalculateLevel();
             }
-            float averageLevelInDistrict = OverallLevel / heroesInTheDistrict.Count;
+            float averageLevelInDistrict = OverallLevel / HeroesInTheDistrict.Count;
             return averageLevelInDistrict;
         }
         public void PrintInformationAboutDistrict()
@@ -45,7 +45,7 @@ namespace Superhero
             Console.WriteLine($"District: {Title}");
             Console.WriteLine($"Id : {DistrictID}");
             Console.WriteLine($"Heroes:");
-            foreach (Hero hero in heroesInTheDistrict)
+            foreach (Hero hero in HeroesInTheDistrict)
             {
                 hero.PrintInfo();
             }

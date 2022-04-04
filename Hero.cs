@@ -7,50 +7,50 @@ using System.Threading.Tasks;
 namespace Superhero
 {
     
-    internal class Hero
+    internal class Hero : Person
     {
         
-        private string surname;
-        public string nickname { get; set; }
-        public string name { get; internal set; }
+        public string Surname;
+        public string Nickname { get; set; }
+        public string Name { get; set; }
 
-        private int heroID;
+        private int HeroID;
  
-        private int deedTime;
+        private int DeedTime;
 
         public Hero()
         {
-            name = "Tony";
-            surname = "Stark";
-            nickname = "IronMan";
-            heroID = 5;
-            deedTime = 10;
+            Name = "Tony";
+            Surname = "Stark";
+            Nickname = "IronMan";
+            HeroID = 5;
+            DeedTime = 10;
         }
 
-        public Hero (string name, string surname, string nickname, int heroID, int deedTime)
+        public Hero (string name, string surname, string nickname, int heroID, int deedTime) : base(name, surname)
         {
-            this.name = name; this.surname = surname; this.nickname = nickname;
-            this.heroID = heroID; this.deedTime = deedTime;
+            this.Name = name; this.Surname = surname; this.Nickname = nickname;
+            this.HeroID = heroID; this.DeedTime = deedTime;
         }
 
         public void PrintInfo()
         {
-            Console.WriteLine($" {name} {surname} >> {nickname} >>\n Hero ID: {heroID}");
-            Console.WriteLine($" {nickname} is a hero!\n Hero deed time is {deedTime} h.");
+            Console.WriteLine($" {Name} {Surname} >> {Nickname} >>\n Hero ID: {HeroID}");
+            Console.WriteLine($" {Nickname} is a hero!\n Hero deed time is {DeedTime} h.");
         }
        
         public int CalculateLevel()
         {
             int level = 0;
-            if (deedTime < 20)
+            if (DeedTime < 20)
             {
                 level = 1;
             }
-            if (deedTime >= 20 && deedTime <= 40)
+            if (DeedTime >= 20 && DeedTime <= 40)
             {
                 level = 2;
             }
-            if (deedTime > 40)
+            if (DeedTime > 40)
             {
                 level = 3;
             }
