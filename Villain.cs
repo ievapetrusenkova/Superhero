@@ -18,7 +18,13 @@ namespace Superhero
         {
             this.Name = name; this.Surname = surname; this.Nickname = nickname;
             this.VillainID = VillainID; this.CrimeTime = CrimeTime;
-            
+
+        }
+        public void Main (string[] args)
+        {
+            Villain NewVillain1 = new Villain("Nathan", "Summers", "Cable", 1055, 20);
+            Villain NewVillain2 = new Villain("Wade", "Wilson", "Deadpool", 1001, 30);
+
         }
         
         public void PrintInfo()
