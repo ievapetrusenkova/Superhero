@@ -1,139 +1,197 @@
 ﻿using Superhero;
 
-namespace SuperHero 
+namespace SuperHero
 {
     internal class Program
     {
 
         static void Main(string[] args)
         {
-         
             Hero hero = new Hero();
-            Hero hero1 = new Hero("John", "Smith", "AgentZero", 34, 30);
-            Hero hero2 = new Hero("James", "Bond", "007", 007, 45);
-            Hero hero3 = new Hero("Samantha", "Jones", "Sam", 11, 55);
 
-            List<Hero> listOfHeroes = new List<Hero>();
-            listOfHeroes.Add(hero);
-            listOfHeroes.Add(hero1);
-            listOfHeroes.Add(hero2);
-            listOfHeroes.Add(hero3);
+            var flashPowers = new List<string>();
+            var wonderWomanPowers = new List<string>();
+            var bondPowers = new List<string>();
+            var lightningPowers = new List<string>();
+            var acePowers = new List<string>();
+            var agentSmartPowers = new List<string>();
+            var lolaPowers = new List<string>();
 
-            District imanta = new District("Imanta", "Riga", 0, listOfHeroes);
+            Hero hero1 = new("John", "Smith", "Flash", 30, flashPowers, 1045, 30);
+            Hero hero2 = new("Amela", "Rada", "WonderWoman", 20, wonderWomanPowers, 1212, 58);
+            Hero hero3 = new("James", "Bond", "007", 45, bondPowers, 0007, 45);
+            Hero hero4 = new("Jim", "Brown", "Lightning", 18, lightningPowers, 1456, 14);
+            Hero hero5 = new("Jack", "Black", "Ace", 33, acePowers, 1522, 23);
+            Hero hero6 = new("Kevin", "Smart", "Agent Smart", 41, agentSmartPowers, 1636, 25);
+            Hero hero7 = new("Lolita", "Oak", "Lola", 23, lolaPowers, 1288, 30);
+
+            List<Hero> listOfHeroes1 = new List<Hero>();
+            listOfHeroes1.Add(hero1);
+            listOfHeroes1.Add(hero2);
+            listOfHeroes1.Add(hero3);
+
+            List<Hero> listOfHeroes2 = new List<Hero>();
+            listOfHeroes2.Add(hero4);
+            listOfHeroes2.Add(hero5);
+            listOfHeroes2.Add(hero6);
+            listOfHeroes2.Add(hero7);
+
+            var cablePowers = new List<string>();
+            var deadPoolpowers = new List<string>();
+            var chuckiePowers = new List<string>();
+
+            List<Villain> villainsImanta = new List<Villain>();
+            List<Villain> villainsJugla = new List<Villain>();
+
+            Villain villain1 = new("Nathan", "Summers", "Cable", 48, cablePowers, 1055, 20);
+            Villain villain2 = new("Wade", "Wilson", "Deadpool", 31, deadPoolpowers, 1001, 30);
+            Villain villain3 = new("Charles", "Crow", "Chuckie", 24, chuckiePowers, 1666, 5);
+
+            villainsImanta.Add(villain1);
+            villainsImanta.Add(villain2);
+            villainsJugla.Add(villain3);
 
 
+            District imanta = new("Imanta", "Riga", 1450, listOfHeroes1, villainsImanta);
+            District jugla = new("Jugla", "Riga", 1774, listOfHeroes2, villainsJugla);
 
-            string[] superHeroNameList = { "Flash", "WonderWoman", "Storm" };
-            int[] superHeroAgeList = { 20, 230, 44 };
-            string[,] superHeroPowers2D ={ { "superFast", "superStrengh", "hardPunch" },
-                {"strengh", "speed", "abilityToFly" },
-                {"WeatherManipulation","TemperatureModification", "flight" } };
+            string[,] villainPowers2D ={
+                { " electric power", "strength", "steel hand" },
+                { "strengh", "immortality", "ability to recover fast" },
+                { "invisible", "can steal", "violent" },
+            };
+
+            string[,] superHeroPowers2D ={
+                { "superFast", "superStrengh", "hardPunch" },
+                { "strengh", "speed", "abilityToFly" },
+                { "good fighter", "elegant", "clever" },
+                { "WeatherManipulation","TemperatureModification", "flight" },
+                { "super memory", "quick actions", "technical skills"},
+                { "very smart", "disguise skills", "good equipment" },
+                { "hypnotizing skills", "ability to change looks", "mind reading" }
+            };
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                flashPowers.Add(superHeroPowers2D[0, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                wonderWomanPowers.Add(superHeroPowers2D[1, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                bondPowers.Add(superHeroPowers2D[2, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                lightningPowers.Add(superHeroPowers2D[3, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                acePowers.Add(superHeroPowers2D[4, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                agentSmartPowers.Add(superHeroPowers2D[5, i]);
+            }
+
+            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
+            {
+                lolaPowers.Add(superHeroPowers2D[6, i]);
+            }
+
             bool isMenuRunning = true;
             do
             {
                 string menuItems;
-
-                Console.WriteLine($"Welcome to the superhero application!");
-                Console.WriteLine($"Select what to do:");
-                Console.WriteLine($"1 - Show a list of superheroes");
-                Console.WriteLine($"2 - Show specific hero");
-                Console.WriteLine($"3 - Adding a superhero");
-                Console.WriteLine($"4 - Deleting a superhero");
-                Console.WriteLine($"5 - superhero level");
-                Console.WriteLine($"7 - information about district");
-
+                PrintMenu();
                 menuItems = Console.ReadLine();
 
                 switch (menuItems)
                 {
                     case "1":
-                        Console.WriteLine("============List=of=superheroes============");
-                        for (int i = 0; i < superHeroNameList.Length; i++)
-                        {
-                            Console.WriteLine($"{i}. {superHeroNameList[i]}");
-                        }
-                        Console.WriteLine("===========================================");
+                        imanta.PrintListOfHeroes();
+                        jugla.PrintListOfHeroes();
                         break;
                     case "2":
                         Console.WriteLine($"Please choose a superhero by number");
 
-                        for (int i = 0; i < superHeroNameList.Length; i++)
-                        {
-                            Console.WriteLine($"{i}. {superHeroNameList[i]}");
-                        }
+                        imanta.PrintListOfHeroes();
+                        jugla.PrintListOfHeroes();
 
                         int.TryParse(Console.ReadLine(), out int chosenNumber);
-                        Console.WriteLine($"You have chosen {superHeroNameList[chosenNumber]}");
-
+                        Console.WriteLine($"You have chosen {imanta.HeroesInTheDistrict[chosenNumber].Nickname}");
+                        Console.WriteLine($"You have chosen {jugla.HeroesInTheDistrict[chosenNumber].Nickname}");
                         Console.WriteLine("Choose what type of info to show");
                         Console.WriteLine($"1 - GENERAL INFO");
                         Console.WriteLine($"2 - FINANCIAL INFO");
                         string showMenu = Console.ReadLine();
                         if (showMenu == "1")
                         {
-                            Console.WriteLine("*********************GENERAL INFO******************");
-                            Console.WriteLine($"Hero: {superHeroNameList[chosenNumber]}");
-                            Console.WriteLine($"Age:  {superHeroAgeList[chosenNumber]} year old");
-                            Console.WriteLine($"Hero powers: \n ");
-                            for (int i = 0; i < superHeroPowers2D.GetLength(1); i++)
-                            {
-                                Console.WriteLine($"{i}. {superHeroPowers2D[chosenNumber, i]} ");
-                            }
-                            Console.WriteLine("******************************************** \n \n");
+                            imanta.HeroesInTheDistrict[chosenNumber].PrintGeneralInfo();
+                            jugla.HeroesInTheDistrict[chosenNumber].PrintGeneralInfo();
                         }
                         else if (showMenu == "2")
                         {
-                            int deedTimeInHours1 = 6;
-                            int deedTimeInHours2 = 7;
-                            int deedTimeInHours3 = 8;
-                            double Salary = 1000;
-                            double CookieCosts = 1.29;
-                            int TotalHours = deedTimeInHours1 + deedTimeInHours2 + deedTimeInHours3;
-                            int AverageHours = TotalHours / 3;
-                            double rewardMoney = TotalHours * 5;
-                            Salary += rewardMoney;
-                            double boughtCookies = Math.Floor(Salary / CookieCosts);
-                            double DailySalary = Math.Round(Salary / 30, 2);
-
-                            Console.WriteLine("************FINANCIAL INFO*****************");
-
-                            Console.WriteLine($" Hero can buy { boughtCookies } cookies");
-                            Console.WriteLine($" Hero earns daily { DailySalary }");
-                            Console.WriteLine($" Our hero spent {TotalHours} hours doing deeds");
-                            Console.WriteLine($" Our hero on average spent {AverageHours} hours per deed");
-                            Console.WriteLine($" Our hero earns {Salary} eur/month");
-                            Console.WriteLine($" For the deeds our hero got as a reward {rewardMoney} EUR");
+                            imanta.HeroesInTheDistrict[chosenNumber].PrintFinancialInfo();
+                            jugla.HeroesInTheDistrict[chosenNumber].PrintFinancialInfo();
                         }
                         break;
                     case "3":
                         Console.WriteLine("What is the new superhero name?");
                         string superHeroName = Console.ReadLine();
-                        superHeroNameList = (string[])superHeroNameList.Append(superHeroName);
+                        Hero newhero = new Hero();
+                        newhero.Nickname = superHeroName;
+                        imanta.AddHero(newhero);
                         Console.WriteLine($"SuperHero {superHeroName} Added!");
                         break;
                     case "4":
                         Console.WriteLine("Which superhero to remove?");
-                        for (int i = 0; i < superHeroNameList.Length; i++)
-                        {
-                            Console.WriteLine($"{i}. {superHeroNameList[i]}");
-                        }
+                        imanta.PrintListOfHeroes();
+                        jugla.PrintListOfHeroes();
                         int.TryParse(Console.ReadLine(), out int positionToRemove);
-                        Console.WriteLine($"SuperHero {superHeroNameList[positionToRemove]} Removed!");
-                        superHeroNameList = superHeroNameList.Remove(positionToRemove);
-
+                        Console.WriteLine($"SuperHero {imanta.HeroesInTheDistrict[positionToRemove]} Removed!");
+                        Console.WriteLine($"SuperHero {jugla.HeroesInTheDistrict[positionToRemove]} Removed!");
+                        imanta.RemoveHero(positionToRemove);
+                        jugla.RemoveHero(positionToRemove);
                         break;
                     case "5":
-                        Console.WriteLine($" {hero.nickname}level is { hero.CalculateLevel() }\n");
-                        foreach (Hero heroPerson in listOfHeroes)
+                        foreach (Hero heroPerson in imanta.HeroesInTheDistrict)
                         {
                             if (heroPerson.CalculateLevel() > 1)
                             {
-                                Console.Write($" {heroPerson.nickname} is higher than level 1\n");
 
                             }
+                            Console.Write($" {heroPerson.Nickname} is higher than level 1\n");
+                            Console.WriteLine($" {heroPerson.Nickname} level is { heroPerson.CalculateLevel() }\n");
+
                         }
                         Console.WriteLine($"\n The average of level of heroes inside {imanta.Title} is : " +
-                            $"{imanta.CalculateAvgLevelInDistrict()}\n");
+                            $"{imanta.CalculateAvgHeroLevelInDistrict()}\n");
+                        break;
+                    case "6":
+
+                        foreach (Hero heroPerson in jugla.HeroesInTheDistrict)
+                        {
+                            Console.Write($" {heroPerson.Nickname} is higher than level 1\n");
+
+                            Console.WriteLine($" {heroPerson.Nickname} level is { heroPerson.CalculateLevel() }\n");
+
+                            if (hero.CalculateLevel() > 1)
+                            {
+
+                            }
+
+                        }
+
+                        Console.WriteLine($"\n The average of level of heroes inside {jugla.Title} is : " +
+                            $"{jugla.CalculateAvgHeroLevelInDistrict()}\n");
                         break;
 
                     /*var nameJohn = listOfHeroes.Find(find => find.name.ToLower() == "john");
@@ -145,12 +203,25 @@ namespace SuperHero
                     {
                         Console.WriteLine("John was not found!");
                     }*/
-                    case "6":
+
+                    case "7":
+                        imanta.PrintListOfVillains();
+
+                        Console.WriteLine($" Total crime time is: {imanta.CalculateTotalCrimeTime()}");
+                        Console.WriteLine($" Most crime time spent is: {imanta.CalculateMaxCrimeTime()}");
+                        break;
+                    case "8":
+                        jugla.PrintListOfVillains();
+                        Console.WriteLine($" Total crime time is: {jugla.CalculateTotalCrimeTime()}");
+                        Console.WriteLine($" Most crime time spent is: {imanta.CalculateMaxCrimeTime()}");
+                        break;
+                    case "9":
+                        imanta.PrintInfoAboutDistrict();
+                        jugla.PrintInfoAboutDistrict();
+                        break;
+                    case "10":
                         isMenuRunning = false;
                         Console.WriteLine($"Good bye!");
-                        break;
-                    case "7":
-                        imanta.PrintInformationAboutDistrict();
                         break;
                     default:
                         Console.WriteLine("Please choose from the available menu!");
@@ -158,83 +229,25 @@ namespace SuperHero
                 }
             } while (isMenuRunning);
 
-                string name = "SuperSonic";
-                int age = 77;
-                string HeroPower1, HeroPower2, HeroPower3;
-                HeroPower1 = "runs superfast";
-                HeroPower2 = "invulnerability";
-                HeroPower3 = "light speed spin dash";
-                bool isEvil = false;
-                double salary = 1000;
-                Console.WriteLine("=======GENERAL INFO======");
-                Console.WriteLine(" Hero");
-                Console.WriteLine("===============");
-                Console.WriteLine($"Hero name: {name}");
-                Console.WriteLine($"Age: {age}");
-                Console.WriteLine($"HeroPowers: \n {HeroPower1}, \n {HeroPower2}, \n {HeroPower3}");
-                Console.WriteLine("==============");
-
-            // Cookie calculation
-            /*
-             * - Continue working on Hero Card view
-                - Add new variables - deedTimeInHours1, deedTimeInHours2, deedTimeInHours3 (INT), holding time that a deed took to complete
-                 - Add methods to calculate:
-                - Total time spent on deeds
-                - Average time spent on one deed
-                - How many cookies Hero will get. 5 cookies per hour
-             */
-            if (!isEvil)
-                {
-                    Console.WriteLine($"\n {name} Protects the city and earns his cookies");
-                }
-                else
-                {
-                    Console.WriteLine("\n The villain is stealing the cookie supply");
-                }
-
-                char deed = 'A';
-
-                switch (deed)
-                {
-                    case 'A':
-                    case 'B':
-                        Console.WriteLine("Perfect! You are so brave!");
-                        break;
-                    case 'C':
-                        Console.WriteLine("Good! But You can do better!");
-                        break;
-                    case 'D':
-                    case 'E':
-                        Console.WriteLine("It is not good! You should choose your bad or good side!");
-                        break;
-                    case 'G':
-                        Console.WriteLine("Bad, you are true villain");
-                        break;
-                    default:
-                        Console.WriteLine("Undefined grade, please regrade it");
-                        break;
-                }
-          
         }
-         
+
+        private static void PrintMenu()
+        {
+            Console.WriteLine($"\nWelcome to the superhero application!");
+            Console.WriteLine($"Select what to do:");
+            Console.WriteLine($"1 - Show a list of superheroes");
+            Console.WriteLine($"2 - Show specific hero");
+            Console.WriteLine($"3 - Adding a superhero");
+            Console.WriteLine($"4 - Deleting a superhero");
+            Console.WriteLine($"5 - Calculate Average heroes level in Imanta");
+            Console.WriteLine($"6 - Calculate Average heroes level in Jugla");
+            Console.WriteLine($"7 - Information about villains in Imanta");
+            Console.WriteLine($"8 - Information about villains in Jugla");
+            Console.WriteLine($"9 - Information about districts");
+            Console.WriteLine($"10 - Exit");
+        }
     }
-
 }
-
-//  BUSINESS REQUIREMENTS
-// 1. I would like to see a menu, to select different parts of superhero information card
-// 2. A list of superheroes - arrays/ maybe lists
-// 3, Add a new superhero
-// 4. Showing a specific superhero information
-// 5. Delete the superhero from the list
-//
-//
-//
-//
-// A. A list of their powers
-// 
-
-
 
 
 
