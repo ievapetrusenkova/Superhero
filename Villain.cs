@@ -19,17 +19,14 @@ namespace Superhero
             this.VillainID = villainID; this.CrimeTime = crimeTime; 
 
         }
-        
-        
+
         public override void PrintGeneralInfo()
         {
-            Console.WriteLine($" {Name} {Surname} >> {Nickname} >>\n Villain ID: {VillainID}");
-            Console.WriteLine($" {Nickname} is a villain!\n {Nickname}`s crime time is {CrimeTime} h.");
-            
+            base.PrintGeneralInfo();
+            Console.WriteLine($"VillainID: {VillainID}");
+            Console.WriteLine($"CrimeTime: {CrimeTime}");
+            Console.WriteLine("******************************************** \n \n");
         }
-
-       
-
 
     }
 }  
